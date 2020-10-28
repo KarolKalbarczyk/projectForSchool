@@ -1,0 +1,16 @@
+﻿@model ASP_pl.Product.ProductViewModel
+
+    <form asp-action="New" asp-controller="Product" method="post">
+        <div class="form-group">
+            <label asp-for="Code"></label>
+            <input asp-for="Code" class="form-control" />
+            <span asp-validation-for="Code" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Description"></label>
+            <input asp-for="Description" class="form-control" />
+        </div>
+        <input type="hidden" asp-for="@Model.Id" />
+        <button type="submit">Submit</button>
+
+    </form>

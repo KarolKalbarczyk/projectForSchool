@@ -1,0 +1,18 @@
+﻿@model ASP_pl.Synchronization.ProductSynchModel
+
+
+    <p>@($"Choose erps to which you want add product with an id of { Model.ProductId }")</p>
+    <form asp-action="Product" asp-controller="Synchronization" method="post">
+        <ul>
+            @for (int i = 0; i < Model.ErpTypes.Count; i++)
+            {
+                <li>
+                    <input type="checkbox" asp-for="@Model.ErpTypes[i].Selected" />
+                    <label asp-for="@Model.ErpTypes[i].Selected">@Model.ErpTypes[i].Erp.ToString()</label>
+                    <input type="hidden" asp-for="@Model.ErpTypes[i].Erp" />
+                </li>
+            }
+        </ul>
+        <input type="hidden" asp-for="@Model.ProductId" />
+        <button type="submit" name="action">Synchronize</button>
+    </form>

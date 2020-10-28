@@ -1,0 +1,11 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+    <div>
+        <button type="button" value="login" onclick="location.href='@Url.Action("GoToLogin", "Home")'">login</button>
+        <button type="button" value="register" onclick="location.href='@Url.Action("GoToRegister", "Home")'">registration</button>
+        <button type="button" value="product" onclick="location.href='@Url.Action("GoToProduct", "Home")'">products</button>
+        <button type="button" value="product" onclick="location.href='@Url.Action("GoToSynch", "Home")'">synchronization</button>
+        <button type="button" value="product" onclick="location.href='@Url.Action("Pump", "Home")'">pump</button>
+    </div>

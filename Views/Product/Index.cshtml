@@ -1,0 +1,35 @@
+﻿@using ASP_pl.Product;
+
+
+@{
+    var products = (IEnumerable<ProductViewModel>)ViewBag.Products;
+    var isAdmin = (bool)ViewBag.IsAdmin;
+}
+
+<button onclick="location.href='@Url.Action("New", "Product")'">Add New Product</button>
+<button onclick="location.href='@Url.Action("Invalidate", "Product")'">Invalidate</button>
+
+<div>
+    <table class="table table-bordered table-responsive table-hover">
+        @foreach (var product in products)
+        {
+            <tr>
+                <td>@product.Code</td>
+                <td>@product.Description</td>
+                @foreach (var (erp, price) in product.Prices)
+                {
+                    <td>@($"{erp}: {price}")</td>
+                }
+                @if (isAdmin)
+                {
+            <td>
+                <button onclick="location.href='@Url.Action("Product", "Synchronization", new { id = product.Id })'">Synchronize</button>
+            </td>
+            <td>
+                <button onclick="location.href='@Url.Action("Modify", "Product", new { id = product.Id })'">Modify</button>
+            </td>
+                }
+            </tr>
+        }
+    </table>
+</div>

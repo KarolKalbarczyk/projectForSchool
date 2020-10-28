@@ -1,0 +1,34 @@
+﻿@model ASP_pl.Synchronization.ErpSynchronizationModel
+@using ASP_pl.Synchronization
+
+@{ 
+    var synchronizations = (IEnumerable<SynchronizationModel>) ViewBag.Synchronizations;
+}
+    <form asp-action="Index" asp-controller="Synchronization" method="post">
+        <ul>
+            @for (int i = 0; i < Model.ErpTypes.Count; i++)
+            {
+            <li>
+                <input type="checkbox" asp-for="@Model.ErpTypes[i].Selected" />
+                <label asp-for="@Model.ErpTypes[i].Selected">@Model.ErpTypes[i].Erp.ToString()</label>
+                <input type="hidden" asp-for="@Model.ErpTypes[i].Erp" />
+            </li>
+             }
+        </ul>
+        <button type="submit" name="action">Synchronize</button>
+    </form>
+
+    <div>
+        <table class="table table-bordered table-responsive table-hover">
+            @foreach (var synch in synchronizations)
+            {
+                <tr>
+                    <td>@synch.Logs.Aggregate("", (acc, s) => acc + ", " + s)</td>
+                    <td>@synch.ProductsUpdated</td>
+                    <td>@synch.State</td>
+                    <td>@synch.Status</td>
+                    }
+                </tr>
+            }
+        </table>
+    </div>

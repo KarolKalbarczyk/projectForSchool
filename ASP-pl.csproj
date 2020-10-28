@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <RootNamespace>ASP_pl</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20201018130809_init.cs" />
+    <Compile Remove="Migrations\20201018130809_init.Designer.cs" />
+    <Compile Remove="Migrations\20201018131230_init2.cs" />
+    <Compile Remove="Migrations\20201018131230_init2.Designer.cs" />
+    <Compile Remove="Migrations\20201018132040_init.cs" />
+    <Compile Remove="Migrations\20201018132040_init.Designer.cs" />
+    <Compile Remove="Migrations\20201019102034_accessories.cs" />
+    <Compile Remove="Migrations\20201019102034_accessories.Designer.cs" />
+    <Compile Remove="Migrations\20201019102333_accessories.cs" />
+    <Compile Remove="Migrations\20201019102333_accessories.Designer.cs" />
+    <Compile Remove="Migrations\20201022203550_identity.cs" />
+    <Compile Remove="Migrations\20201022203550_identity.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.9" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.9">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+
+
+</Project>
